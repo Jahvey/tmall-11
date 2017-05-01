@@ -1,4 +1,4 @@
-package main.java.com.qyluo.tmall.meta;
+package com.qyluo.tmall.meta;
 
 /**
  * Created by qy_lu on 2017/4/29.

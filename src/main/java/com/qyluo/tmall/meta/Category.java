@@ -1,4 +1,4 @@
-package main.java.com.qyluo.tmall.meta;
+package com.qyluo.tmall.meta;
 
 import java.util.List;
 
