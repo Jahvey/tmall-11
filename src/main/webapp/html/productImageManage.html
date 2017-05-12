@@ -1,0 +1,352 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html>
+
+<head>
+    <script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+    <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <link href="http://how2j.cn/tmall/css/back/style.css" rel="stylesheet">
+
+    <script>
+        function checkEmpty(id, name){
+            var value = $("#"+id).val();
+            if(value.length==0){
+                alert(name+ "不能为空");
+                $("#"+id)[0].focus();
+                return false;
+            }
+            return true;
+        }
+        function checkNumber(id, name){
+            var value = $("#"+id).val();
+            if(value.length==0){
+                alert(name+ "不能为空");
+                $("#"+id)[0].focus();
+                return false;
+            }
+            if(isNaN(value)){
+                alert(name+ "必须是数字");
+                $("#"+id)[0].focus();
+                return false;
+            }
+
+            return true;
+        }
+        function checkInt(id, name){
+            var value = $("#"+id).val();
+            if(value.length==0){
+                alert(name+ "不能为空");
+                $("#"+id)[0].focus();
+                return false;
+            }
+            if(parseInt(value)!=value){
+                alert(name+ "必须是整数");
+                $("#"+id)[0].focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        $(function(){
+            $("a").click(function(){
+                var deleteLink = $(this).attr("deleteLink");
+                console.log(deleteLink);
+                if("true"==deleteLink){
+                    var confirmDelete = confirm("确认要删除");
+                    if(confirmDelete)
+                        return true;
+                    return false;
+
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div class="navitagorDiv">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <img style="margin-left:10px;margin-right:0px" class="pull-left" src="http://how2j.cn/tmall/img/site/tmallbuy.png" height="45px">
+        <a class="navbar-brand" href="#nowhere">天猫后台</a>
+
+        <a class="navbar-brand" href="#nowhere">分类管理</a>
+        <a class="navbar-brand" href="#nowhere">用户管理</a>
+        <a class="navbar-brand" href="#nowhere">订单管理</a>
+    </nav>
+</div>
+
+<script>
+    $(function(){
+        $(".addFormSingle").submit(function(){
+            if(checkEmpty("filepathSingle","图片文件")){
+                $("#filepathSingle").value("");
+                return true;
+            }
+            return false;
+        });
+        $(".addFormDetail").submit(function(){
+            if(checkEmpty("filepathDetail","图片文件"))
+                return true;
+            return false;
+        });
+    });
+
+</script>
+
+<title>产品图片管理</title>
+
+<div class="workingArea">
+    <ol class="breadcrumb">
+        <li><a href="#nowhere">所有分类</a></li>
+        <li><a href="#nowhere">男士手拿包 </a></li>
+        <li class="active">MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮</li>
+        <li class="active">产品图片管理</li>
+    </ol>
+
+    <table class="addPictureTable" align="center">
+        <tr>
+            <td class="addPictureTableTD">
+                <div>
+                    <div class="panel panel-warning addPictureDiv">
+                        <div class="panel-heading">新增产品<b class="text-primary"> 单个 </b>图片</div>
+                        <div class="panel-body">
+                            <form method="post" class="addFormSingle"  enctype="multipart/form-data">
+                                <table class="addTable">
+                                    <tr>
+                                        <td>请选择本地图片 尺寸400X400 为佳</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input id="filepathSingle" type="file" name="filepath" />
+                                        </td>
+                                    </tr>
+                                    <tr class="submitTR">
+                                        <td align="center">
+                                            <input type="hidden" name="type" value="type_single" />
+                                            <input type="hidden" name="pid" value="677" />
+                                            <button type="button" class="btn btn-success">提 交</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover  table-condensed">
+                        <thead>
+                        <tr class="success">
+                            <th>ID</th>
+                            <th>产品单个图片缩略图</th>
+                            <th>删除</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            <td>7058</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productSingle/7058.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7057</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productSingle/7057.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7056</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productSingle/7056.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7055</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productSingle/7055.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7054</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productSingle/7054.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </td>
+            <td class="addPictureTableTD">
+                <div>
+
+                    <div class="panel panel-warning addPictureDiv">
+                        <div class="panel-heading">新增产品<b class="text-primary"> 详情 </b>图片</div>
+                        <div class="panel-body">
+                            <form method="post" class="addFormDetail"  enctype="multipart/form-data1">
+                                <table class="addTable">
+                                    <tr>
+                                        <td>请选择本地图片 宽度790  为佳</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input id="filepathDetail"  type="file" name="filepath" />
+                                        </td>
+                                    </tr>
+                                    <tr class="submitTR">
+                                        <td align="center">
+                                            <input type="hidden" name="type" value="type_detail" />
+                                            <input type="hidden" name="pid" value="677" />
+                                            <button type="button" class="btn btn-success">提 交</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover  table-condensed">
+                        <thead>
+                        <tr class="success">
+                            <th>ID</th>
+                            <th>产品详情图片缩略图</th>
+                            <th>删除</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            <td>7064</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productDetail/7064.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7063</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productDetail/7063.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7062</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productDetail/7062.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7061</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productDetail/7061.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7060</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productDetail/7060.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>7059</td>
+                            <td>
+                                <a title="点击查看原图" href="#nowhere"><img height="50px" src="http://how2j.cn/tmall/img/productDetail/7059.jpg"></a>
+                            </td>
+                            <td><a deleteLink="true"
+                                   href="#nowhere"><span
+                                    class="     glyphicon glyphicon-trash"></span></a></td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div class="footer">
+</div>
+
+</body>
+</html>
+﻿<style>
+    span.how2jcopyrightspan1{
+        font-weight:bold;
+    }
+
+    span.how2jcopyrightspan1 a{
+        color:blue;
+    }
+
+    span.how2jcopyrightspan1 a:hover{
+        color:#C40000;
+    }
+
+    span.how2jcopyrightspan2{
+        color:red;
+
+    }
+    div.how2jcopyrightDiv{
+        width:500px;
+        margin:0px auto;
+        text-align:center;
+    }
+</style>
+<div class="how2jcopyrightDiv">
+  <span class="how2jcopyrightspan1"><a href="http://how2j.cn/k/tmall-front/tmall-front-790/790.html?tid=12">模仿天猫前端多功能交互教程 </a> 为how2j.cn 版权所有
+  </span>
+    <br>
+    <span class="how2jcopyrightspan2">（仅供购买者学习，请勿私自传播，否则自行承担相关法律责任）</span>
+
+</div>

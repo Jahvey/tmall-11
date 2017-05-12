@@ -67,6 +67,8 @@ public class CategoryDAO {
             ResultSet rs = stat.executeQuery(sql);
             if (rs.next()) {
                 String name = rs.getString(2);
+
+                category = new Category();
                 category.setId(id);
                 category.setName(name);
             }

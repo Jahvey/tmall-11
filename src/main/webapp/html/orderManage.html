@@ -1,0 +1,511 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html>
+
+<head>
+    <script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+    <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <link href="http://how2j.cn/tmall/css/back/style.css" rel="stylesheet">
+
+    <script>
+        function checkEmpty(id, name){
+            var value = $("#"+id).val();
+            if(value.length==0){
+                alert(name+ "不能为空");
+                $("#"+id)[0].focus();
+                return false;
+            }
+            return true;
+        }
+        function checkNumber(id, name){
+            var value = $("#"+id).val();
+            if(value.length==0){
+                alert(name+ "不能为空");
+                $("#"+id)[0].focus();
+                return false;
+            }
+            if(isNaN(value)){
+                alert(name+ "必须是数字");
+                $("#"+id)[0].focus();
+                return false;
+            }
+
+            return true;
+        }
+        function checkInt(id, name){
+            var value = $("#"+id).val();
+            if(value.length==0){
+                alert(name+ "不能为空");
+                $("#"+id)[0].focus();
+                return false;
+            }
+            if(parseInt(value)!=value){
+                alert(name+ "必须是整数");
+                $("#"+id)[0].focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        $(function(){
+            $("a").click(function(){
+                var deleteLink = $(this).attr("deleteLink");
+                console.log(deleteLink);
+                if("true"==deleteLink){
+                    var confirmDelete = confirm("确认要删除");
+                    if(confirmDelete)
+                        return true;
+                    return false;
+
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div class="navitagorDiv">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <img style="margin-left:10px;margin-right:0px" class="pull-left" src="http://how2j.cn/tmall/img/site/tmallbuy.png" height="45px">
+        <a class="navbar-brand" href="#nowhere">天猫后台</a>
+
+        <a class="navbar-brand" href="#nowhere">分类管理</a>
+        <a class="navbar-brand" href="#nowhere">用户管理</a>
+        <a class="navbar-brand" href="#nowhere">订单管理</a>
+    </nav>
+</div>
+
+<script>
+    $(function(){
+
+        $("#addForm").submit(function(){
+            if(checkEmpty("name","订单名称"))
+                return true;
+            return false;
+        });
+        $("button.orderPageCheckOrderItems").click(function(){
+            var oid = $(this).attr("oid");
+            $("tr.orderPageOrderItemTR[oid="+oid+"]").toggle();
+        });
+    });
+
+</script>
+
+<title>订单管理</title>
+
+<div class="workingArea">
+    <h1 class="label label-info" >订单管理</h1>
+    <br>
+    <br>
+
+    <div class="listDataTableDiv">
+        <table class="table table-striped table-bordered table-hover1  table-condensed">
+            <thead>
+            <tr class="success">
+                <th>ID</th>
+                <th>状态</th>
+                <th>金额</th>
+                <th width="100px">商品数量</th>
+                <th width="100px">买家名称</th>
+                <th>创建时间</th>
+                <th>支付时间</th>
+                <th>发货时间</th>
+                <th>确认收货时间</th>
+                <th width="100px">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td>966</td>
+                <td>待发货</td>
+                <td>￥38,668.398</td>
+                <td align="center">15</td>
+                <td align="center">b</td>
+
+                <td>2016-12-16 15:09:54</td>
+                <td>2016-12-16 15:11:50</td>
+                <td></td>
+                <td></td>
+
+                <td>
+                    <button oid=966 class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
+
+                    <a href="#nowhere">
+                        <button class="btn btn-primary btn-xs">发货</button>
+                    </a>
+
+                </td>
+            </tr>
+            <tr class="orderPageOrderItemTR"  oid=966>
+                <td colspan="10" align="center">
+
+                    <div  class="orderPageOrderItem">
+                        <table width="800px" align="center" class="orderPageOrderItemTable">
+
+                            <tr>
+                                <td align="left">
+                                    <img width="40px" height="40px" src="http://how2j.cn/tmall/img/productSingle/4423.jpg">
+                                </td>
+
+                                <td>
+                                    <a href="#nowhere">
+                                        <span>Ronshen/容声 BCD-232WD11NA 三门电冰箱家用风冷无霜智能变温</span>
+                                    </a>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">11个</span>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">单价：￥2879.2</span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td align="left">
+                                    <img width="40px" height="40px" src="http://how2j.cn/tmall/img/productSingle/2461.jpg">
+                                </td>
+
+                                <td>
+                                    <a href="#nowhere">
+                                        <span>Vatti/华帝 DDF60-i14010电热水器遥控超薄电热水器洗澡机热水器</span>
+                                    </a>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">4个</span>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">单价：￥1749.3</span>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>965</td>
+                <td>等评价</td>
+                <td>￥7,008.40</td>
+                <td align="center">1</td>
+                <td align="center">tmalltest</td>
+
+                <td>2016-11-22 14:31:03</td>
+                <td>2016-11-22 14:31:05</td>
+                <td>2016-11-22 14:31:18</td>
+                <td>2016-11-22 21:25:36</td>
+
+                <td>
+                    <button oid=965 class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
+
+                </td>
+            </tr>
+            <tr class="orderPageOrderItemTR"  oid=965>
+                <td colspan="10" align="center">
+
+                    <div  class="orderPageOrderItem">
+                        <table width="800px" align="center" class="orderPageOrderItemTable">
+
+                            <tr>
+                                <td align="left">
+                                    <img width="40px" height="40px" src="http://how2j.cn/tmall/img/productSingle/1917.jpg">
+                                </td>
+
+                                <td>
+                                    <a href="#nowhere">
+                                        <span>依然美佳欧式布艺沙发组合可拆洗新款实木雕花大户型奢华别墅家具</span>
+                                    </a>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">1个</span>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">单价：￥7008.4</span>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>964</td>
+                <td>待收货</td>
+                <td>￥419.40</td>
+                <td align="center">1</td>
+                <td align="center">tmalltest</td>
+
+                <td>2016-11-22 11:21:21</td>
+                <td>2016-11-22 21:25:35</td>
+                <td>2016-12-19 15:42:11</td>
+                <td></td>
+
+                <td>
+                    <button oid=964 class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
+
+                </td>
+            </tr>
+            <tr class="orderPageOrderItemTR"  oid=964>
+                <td colspan="10" align="center">
+
+                    <div  class="orderPageOrderItem">
+                        <table width="800px" align="center" class="orderPageOrderItemTable">
+
+                            <tr>
+                                <td align="left">
+                                    <img width="40px" height="40px" src="http://how2j.cn/tmall/img/productSingle/7674.jpg">
+                                </td>
+
+                                <td>
+                                    <a href="#nowhere">
+                                        <span>Action mates韩版修身男士西服套装发型师休闲小西装结婚礼服潮</span>
+                                    </a>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">1个</span>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">单价：￥419.4</span>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>963</td>
+                <td>待收货</td>
+                <td>￥157.25</td>
+                <td align="center">1</td>
+                <td align="center">tmalltest</td>
+
+                <td>2016-11-22 11:21:16</td>
+                <td>2016-11-22 11:21:30</td>
+                <td>2016-12-22 16:00:23</td>
+                <td></td>
+
+                <td>
+                    <button oid=963 class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
+
+                </td>
+            </tr>
+            <tr class="orderPageOrderItemTR"  oid=963>
+                <td colspan="10" align="center">
+
+                    <div  class="orderPageOrderItem">
+                        <table width="800px" align="center" class="orderPageOrderItemTable">
+
+                            <tr>
+                                <td align="left">
+                                    <img width="40px" height="40px" src="http://how2j.cn/tmall/img/productSingle/7014.jpg">
+                                </td>
+
+                                <td>
+                                    <a href="#nowhere">
+                                        <span>劳迪莱斯男士手包休闲手拿包牛皮大容量钱包男包软面小包包手抓包</span>
+                                    </a>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">1个</span>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">单价：￥157.25</span>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>962</td>
+                <td>等评价</td>
+                <td>￥835.20</td>
+                <td align="center">1</td>
+                <td align="center">tmalltest</td>
+
+                <td>2016-11-22 11:21:11</td>
+                <td>2016-11-22 11:21:50</td>
+                <td>2016-11-22 11:21:55</td>
+                <td>2016-11-22 14:30:03</td>
+
+                <td>
+                    <button oid=962 class="orderPageCheckOrderItems btn btn-primary btn-xs">查看详情</button>
+
+                </td>
+            </tr>
+            <tr class="orderPageOrderItemTR"  oid=962>
+                <td colspan="10" align="center">
+
+                    <div  class="orderPageOrderItem">
+                        <table width="800px" align="center" class="orderPageOrderItemTable">
+
+                            <tr>
+                                <td align="left">
+                                    <img width="40px" height="40px" src="http://how2j.cn/tmall/img/productSingle/8917.jpg">
+                                </td>
+
+                                <td>
+                                    <a href="#nowhere">
+                                        <span>女巫2016欧洲站夏季新品欧美时尚绣花衬衣上衣九分裤两件套装高端</span>
+                                    </a>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">1个</span>
+                                </td>
+                                <td align="right">
+
+                                    <span class="text-muted">单价：￥835.2</span>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pageDiv">
+
+        <script>
+            $(function(){
+                $("ul.pagination li.disabled a").click(function(){
+                    return false;
+                });
+            });
+
+        </script>
+
+        <nav>
+            <ul class="pagination">
+                <li >
+                    <a  href="#nowhere" aria-label="Previous" >
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a  href="#nowhere" aria-label="Previous" >
+                        <span aria-hidden="true">‹</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a
+                            href="#nowhere"
+
+                    >1</a>
+                </li>
+
+                <li class="disabled">
+                    <a
+                            href="#nowhere"
+                            class="current"
+                    >2</a>
+                </li>
+
+                <li >
+                    <a
+                            href="#nowhere"
+
+                    >3</a>
+                </li>
+
+                <li >
+                    <a
+                            href="#nowhere"
+
+                    >4</a>
+                </li>
+
+                <li >
+                    <a
+                            href="#nowhere"
+
+                    >5</a>
+                </li>
+
+                <li >
+                    <a href="#nowhere" aria-label="Next">
+                        <span aria-hidden="true">›</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#nowhere" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+</div>
+
+<div class="footer">
+</div>
+
+</body>
+</html>
+﻿<style>
+    span.how2jcopyrightspan1{
+        font-weight:bold;
+    }
+
+    span.how2jcopyrightspan1 a{
+        color:blue;
+    }
+
+    span.how2jcopyrightspan1 a:hover{
+        color:#C40000;
+    }
+
+    span.how2jcopyrightspan2{
+        color:red;
+
+    }
+    div.how2jcopyrightDiv{
+        width:500px;
+        margin:0px auto;
+        text-align:center;
+    }
+</style>
+<div class="how2jcopyrightDiv">
+  <span class="how2jcopyrightspan1"><a href="http://how2j.cn/k/tmall-front/tmall-front-790/790.html?tid=12">模仿天猫前端多功能交互教程 </a> 为how2j.cn 版权所有
+  </span>
+    <br>
+    <span class="how2jcopyrightspan2">（仅供购买者学习，请勿私自传播，否则自行承担相关法律责任）</span>
+
+</div>
