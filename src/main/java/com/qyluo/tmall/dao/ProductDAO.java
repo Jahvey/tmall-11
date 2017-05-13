@@ -36,7 +36,7 @@ public class ProductDAO {
         try (Connection conn = DBUtil.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, product.getName());
             ps.setString(2, product.getSubTitle());
-            ps.setFloat(3, product.getOriginalPrice());
+            ps.setFloat(3, product.getOrignalPrice());
             ps.setFloat(4, product.getPromotePrice());
             ps.setInt(5, product.getStock());
             ps.setInt(6, product.getCategory().getId());
@@ -54,12 +54,12 @@ public class ProductDAO {
     }
 
     public void update(Product product) {
-        String sql = "update product set name = ?, subTitle = ?, originalPrice = ?, promotePrice = ?, stock = ?, cid = ?, " +
+        String sql = "update product set name = ?, subTitle = ?, orignalPrice = ?, promotePrice = ?, stock = ?, cid = ?, " +
                 "createDate = ? where id = ?";
         try (Connection conn = DBUtil.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, product.getName());
             ps.setString(2, product.getSubTitle());
-            ps.setFloat(3, product.getOriginalPrice());
+            ps.setFloat(3, product.getOrignalPrice());
             ps.setFloat(4, product.getPromotePrice());
             ps.setInt(5, product.getStock());
             ps.setInt(6, product.getCategory().getId());
@@ -89,7 +89,7 @@ public class ProductDAO {
             if (rs.next()) {
                 String name = rs.getString("name");
                 String subTitle = rs.getString("subTitle");
-                float originalPrice = rs.getFloat("originalPrice");
+                float orignalPrice = rs.getFloat("orignalPrice");
                 float promotePrice = rs.getFloat("promotePrice");
                 int stock = rs.getInt("stock");
                 int cid = rs.getInt("cid");
@@ -98,7 +98,7 @@ public class ProductDAO {
                 product = new Product();
                 product.setName(name);
                 product.setSubTitle(subTitle);
-                product.setOriginalPrice(originalPrice);
+                product.setOrignalPrice(orignalPrice);
                 product.setPromotePrice(promotePrice);
                 product.setStock(stock);
                 product.setCreateDate(createDate);
@@ -129,7 +129,7 @@ public class ProductDAO {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String subTitle = rs.getString("subTitle");
-                float originalPrice = rs.getFloat("originalPrice");
+                float orignalPrice = rs.getFloat("orignalPrice");
                 float promotePrice = rs.getFloat("promotePrice");
                 int stock = rs.getInt("stock");
                 Date createDate = DateUtil.t2d(rs.getTimestamp("createDate"));
@@ -137,7 +137,7 @@ public class ProductDAO {
                 Product product = new Product();
                 product.setName(name);
                 product.setSubTitle(subTitle);
-                product.setOriginalPrice(originalPrice);
+                product.setOrignalPrice(orignalPrice);
                 product.setPromotePrice(promotePrice);
                 product.setStock(stock);
                 product.setCreateDate(createDate);
@@ -168,7 +168,7 @@ public class ProductDAO {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String subTitle = rs.getString("subTitle");
-                float originalPrice = rs.getFloat("originalPrice");
+                float orignalPrice = rs.getFloat("orignalPrice");
                 float promotePrice = rs.getFloat("promotePrice");
                 int stock = rs.getInt("stock");
                 int cid = rs.getInt("cid");
@@ -177,7 +177,7 @@ public class ProductDAO {
                 Product product = new Product();
                 product.setName(name);
                 product.setSubTitle(subTitle);
-                product.setOriginalPrice(originalPrice);
+                product.setOrignalPrice(orignalPrice);
                 product.setPromotePrice(promotePrice);
                 product.setStock(stock);
                 product.setCreateDate(createDate);
@@ -262,7 +262,7 @@ public class ProductDAO {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String subTitle = rs.getString("subTitle");
-                float originalPrice = rs.getFloat("originalPrice");
+                float orignalPrice = rs.getFloat("orignalPrice");
                 float promotePrice = rs.getFloat("promotePrice");
                 int stock = rs.getInt("stock");
                 int cid = rs.getInt("cid");
@@ -270,7 +270,7 @@ public class ProductDAO {
 
                 product.setName(name);
                 product.setSubTitle(subTitle);
-                product.setOriginalPrice(originalPrice);
+                product.setOrignalPrice(orignalPrice);
                 product.setPromotePrice(promotePrice);
                 product.setStock(stock);
                 product.setCreateDate(createDate);

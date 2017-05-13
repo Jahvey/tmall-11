@@ -9,7 +9,7 @@ import java.util.List;
 public class Product {
     private String name;
     private String subTitle;
-    private float originalPrice;
+    private float orignalPrice;
     private float promotePrice;
     private int stock;
     private Date createDate;
@@ -38,12 +38,12 @@ public class Product {
         this.subTitle = subTitle;
     }
 
-    public float getOriginalPrice() {
-        return originalPrice;
+    public float getOrignalPrice() {
+        return orignalPrice;
     }
 
-    public void setOriginalPrice(float originalPrice) {
-        this.originalPrice = originalPrice;
+    public void setOrignalPrice(float orignalPrice) {
+        this.orignalPrice = orignalPrice;
     }
 
     public float getPromotePrice() {

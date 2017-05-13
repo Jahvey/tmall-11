@@ -19,11 +19,6 @@ public class PropertyServlet extends BaseBackServlet {
         Category category = categoryDAO.get(cid);
 
         String name = request.getParameter("name");
-        try {
-            name = new String(name.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
         Property property = new Property();
         property.setName(name);
         property.setCategory(category);
