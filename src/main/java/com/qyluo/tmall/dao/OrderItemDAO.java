@@ -153,7 +153,7 @@ public class OrderItemDAO {
     }
 
     public List<OrderItem> listByOrder(int oid, int start, int count) {
-        String sql = "select * from orderitem where oid = ? order by desc limit ?, ?";
+        String sql = "select * from orderitem where oid = ? order by id desc limit ?, ?";
         List<OrderItem> orderItems = new ArrayList<OrderItem>();
         try (Connection conn = DBUtil.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, oid);

@@ -61,7 +61,7 @@ public class ProductServlet extends BaseBackServlet {
 
         List<PropertyValue> propertyValues = propertyValueDAO.list(product.getId());
         request.setAttribute("pvs", propertyValues);
-        return "admin/editPropertyValue.jsp";
+        return "admin/editProductValue.jsp";
     }
 
     public String updatePropertyValue(HttpServletRequest request, HttpServletResponse response, Page page) {
