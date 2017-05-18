@@ -105,6 +105,7 @@ public class ProductDAO {
                 Category category = new CategoryDAO().get(cid);
                 product.setCategory(category);
                 product.setId(id);
+                setFirstProductImage(product);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -144,6 +145,7 @@ public class ProductDAO {
                 Category category = new CategoryDAO().get(cid);
                 product.setCategory(category);
                 product.setId(id);
+                setFirstProductImage(product);
                 products.add(product);
             }
         } catch (SQLException e) {
@@ -184,6 +186,7 @@ public class ProductDAO {
                 Category category = new CategoryDAO().get(cid);
                 product.setCategory(category);
                 product.setId(id);
+                setFirstProductImage(product);
                 products.add(product);
             }
         } catch (SQLException e) {
@@ -255,6 +258,7 @@ public class ProductDAO {
             ps.setInt(2, start);
             ps.setInt(3, count);
             ResultSet rs = ps.executeQuery();
+            products = new ArrayList<>();
 
             while (rs.next()) {
                 Product product = new Product();

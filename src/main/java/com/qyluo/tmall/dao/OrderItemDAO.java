@@ -44,7 +44,7 @@ public class OrderItemDAO {
 
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                int id = rs.getInt("id");
+                int id = rs.getInt(1);
                 orderItem.setId(id);
             }
         } catch (SQLException e) {
