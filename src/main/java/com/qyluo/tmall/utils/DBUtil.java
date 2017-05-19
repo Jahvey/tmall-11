@@ -12,7 +12,7 @@ public class DBUtil {
     static int port = 3306;
     static String database = "tmall";
     static String encoding = "UTF-8";
-    static String loginName = "root";
+    static String loginName = "qyluo";
     static String passWord = "123456";
 
     static {

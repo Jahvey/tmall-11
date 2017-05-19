@@ -1,5 +1,5 @@
 ﻿/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;
-/*!40101 SET SQL_MODE='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */;
+/*!40101 SET SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES */;
 /*!40103 SET SQL_NOTES='ON' */;
 
@@ -7,6 +7,11 @@
 DROP DATABASE IF EXISTS `tmall`;
 CREATE DATABASE `tmall` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `tmall`;
+SET character_set_client='utf8';
+SET character_set_connection='utf8';
+SET character_set_results='utf8';
+SET character_set_database='utf8';
+SET character_set_server='utf8';
 CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
